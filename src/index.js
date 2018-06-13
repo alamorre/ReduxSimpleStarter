@@ -1,14 +1,20 @@
 // Call the needed imports
 import React from 'react';
 import ReactDOM from 'react-dom';
+import YTSearch from 'youtube-api-search';
 
 // Import from other silos
 import SearchBar from './components/search_bar';
 
 const API_KEY = 'AIzaSyC67KAkEsOfkGh2gAiIwkTc3wibjDlmJ_8'
 
+// Executed a youtube search
+YTSearch({key: API_KEY, term: 'XXL'}, function(data) {
+  console.log(data);
+});
+
 // 1. Create our first component which will produce html
-const App = () => { // Fat arrow beats 'function' due to less repetitive syntax
+const App = () => { // This is a FUNCTIONAL COMPONENT
   return (
     <div>
       <SearchBar />
