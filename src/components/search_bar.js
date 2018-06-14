@@ -16,19 +16,18 @@ class SearchBar extends Component {
   // Every react class has a render method which returns JSX
   render() {
     return (
-      <div>
+      <div className="search-bar">
         <input
         value={this.state.term}
-        onChange={event => this.setState({ term: event.target.value })} />
+        onChange={event => this.onInputChange(event.target.value)} />
       </div>
     );
   }
 
-  // This will catch when the user is typing
-  // Triggered by onChange={this.onInputChange}
-  // onInputChange(event) {
-  //   console.log(event.target.value)
-  // }
+  onInputChange(term) {
+    this.setState({term});
+    this.props.onSearchTermChange(term);
+  }
 }
 
 // This allows other files to access ONLY these instances
